@@ -1,0 +1,49 @@
+@tailwind base;
+
+@layer base {
+  body {
+    @apply bg-neutral-900;
+  }
+
+  h1 {
+    @apply font-poppins text-4xl font-medium tracking-wide text-neutral-200;
+  }
+}
+
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .card {
+    position: absolute;
+    width: 100%;
+    max-width: 768px;
+    max-height: min-content;
+    padding: theme(spacing.6);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: theme(borderRadius.lg);
+    border-width: theme(borderWidth.DEFAULT);
+    border-color: theme(colors.neutral[600]);
+    background-color: theme(colors.neutral[800]);
+    stroke-width: 0.1;
+
+    @media (min-width: 640px) {
+      flex-wrap: nowrap;
+    }
+
+    &:hover {
+      stroke-width: 0.2;
+    }
+
+    li > svg {
+      @apply stroke-current transition-all duration-300;
+    }
+
+    &:is(:hover, :focus) li > svg {
+      @apply stroke-emerald-500 duration-75;
+    }
+  }
+}
